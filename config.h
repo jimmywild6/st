@@ -5,9 +5,9 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char font[] = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char font[] = "Hack:size=14";
 static int borderpx = 2;
-#define histsize 2000
+#define histsize 20000
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -64,7 +64,7 @@ static unsigned int cursorthickness = 2;
 static int bellvolume = 0;
 
 /* default TERM value */
-static char termname[] = "st-256color";
+static char termname[] = "xterm-256color";
 
 /*
  * spaces per tab
@@ -87,29 +87,29 @@ static unsigned int tabspaces = 8;
 static const char *colorname[] = {
 	/* 8 normal colors */
 	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	"#cc0000",
+	"#009600",
+	"#aa5500",
+	"#335ea7",
+	"#a000a0",
+	"#009696",
+	"#dddddd",
 
 	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	"#646464",
+	"#f05050",
+	"#49dc49",
+	"#b8971e",
+	"#5555ff",
+	"#e64ce6",
+	"#00c8c8",
+	"#f0f0f0",
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
 	"#555555",
+        "#fefefe"
 };
 
 
@@ -117,10 +117,10 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-static unsigned int defaultfg = 7;
-static unsigned int defaultbg = 0;
-static unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+static unsigned int defaultfg = 0;
+static unsigned int defaultbg = 257;
+static unsigned int defaultcs = 0;
+static unsigned int defaultrcs = 256;
 
 /*
  * Default shape of cursor
@@ -144,7 +144,7 @@ static unsigned int mousebg = 0;
  * complex.
  */
 static unsigned int defaultitalic = 11;
-static unsigned int defaultunderline = 7;
+static unsigned int defaultunderline = 0;
 
 /*
  * Internal mouse shortcuts.
