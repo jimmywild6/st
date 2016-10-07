@@ -4612,6 +4612,7 @@ copyurl(const Arg *arg) {
 		selnormalize();
 		tsetdirt(sel.nb.y, sel.ne.y);
 		selcopy(0);
+		clipcopy(NULL);
 	}
 
 	free(linestr);
