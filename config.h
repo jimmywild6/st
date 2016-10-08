@@ -84,7 +84,41 @@ static char termname[] = "xterm-256color";
 static unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
-static const char *colorname[] = {
+/* Night time colors */
+static const char *night_colorname[] = {
+	/* 8 normal colors */
+	"#181a26",
+	"#ff0000",
+	"#10cc40",
+	"#f9e000",
+	"#285577",
+	"#dc8cc3",
+	"#8cd0d3",
+	"#cccccc",
+
+	/* 8 bright colors */
+	"#709080",
+	"#dca3a3",
+	"#c3bf9f",
+	"#ffbc00",
+	"#1a86f0",
+	"#ec93d3",
+	"#93e0e3",
+	"#f0f0f0",
+
+	[255] = 0,
+
+	/* more colors can be added after 255 to use with DefaultXX */
+	"#cccccc", // defaultfg
+	"#181a26", // defaultbg
+	"#00ff00", // defaultcs
+	"#555555", // defaultrcs
+	"#ffbc00", // defaultitalic
+	"#cccccc", //defaultunderline
+};
+
+/* Day time colors */
+static const char *day_colorname[] = {
 	/* 8 normal colors */
 	"black",
 	"#cc0000",
@@ -108,19 +142,23 @@ static const char *colorname[] = {
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
-	"#555555",
-        "#fefefe"
-};
+	"black",   // defaultfg
+	"#fefefe", // defaultbg
+	"#00ff00", // defaultcs
+	"#555555", // defaultrcs
+	"#b8971e", // defaultitalic
+	"black",   //defaultunderline
 
+};
 
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-static unsigned int defaultfg = 0;
+static unsigned int defaultfg = 256;
 static unsigned int defaultbg = 257;
-static unsigned int defaultcs = 0;
-static unsigned int defaultrcs = 256;
+static unsigned int defaultcs = 258;
+static unsigned int defaultrcs = 259;
 
 /*
  * Default shape of cursor
@@ -143,8 +181,8 @@ static unsigned int mousebg = 0;
  * will reverse too. Another logic would only make the simple feature too
  * complex.
  */
-static unsigned int defaultitalic = 11;
-static unsigned int defaultunderline = 0;
+static unsigned int defaultitalic = 260;
+static unsigned int defaultunderline = 261;
 
 /*
  * Internal mouse shortcuts.
