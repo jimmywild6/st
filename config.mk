@@ -20,6 +20,8 @@ LIBS = -L/usr/lib -lc -L${X11LIB} -lm -lX11 -lutil -lXft \
 
 # flags
 CPPFLAGS = -DVERSION=\"${VERSION}\" -D_XOPEN_SOURCE=600
+THEME ?= day
+CPPFLAGS += -Dcolorname=${THEME}_colorname
 CFLAGS += -g -std=c99 -pedantic -Wall -Wvariadic-macros -Os ${INCS} ${CPPFLAGS}
 LDFLAGS += -g ${LIBS}
 
